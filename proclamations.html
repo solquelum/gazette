@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Proclamations | Solquelum Gazette</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://solquelumgazette.github.io/favicon%20(1).png">
+
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --glass: rgba(255, 255, 255, 0.08);
+            --glass-hover: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --accent: #ffd700;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background: url('https://solquelumgazette.github.io/bg.png')no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(16, 24, 32, 0.4), rgba(0, 0, 0, 0.6));
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Revised Navigation Header */
+        nav {
+            width: 100%;
+            max-width: 800px;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .nav-branding {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .nav-logo {
+            width: 50px;
+            height: auto;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+        }
+
+        .nav-title {
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+        }
+
+        .nav-home-link {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-home-link:hover {
+            color: var(--accent);
+        }
+
+        .content-header {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px 20px 40px;
+            z-index: 10;
+        }
+
+        .page-title {
+            font-weight: 900;
+            font-size: 2.2rem;
+            letter-spacing: -0.04em;
+            text-transform: uppercase;
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 800px;
+            padding: 0 20px 80px;
+            z-index: 10;
+        }
+
+        .list-container {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 20px;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .record-item {
+            padding: 20px 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .record-item:last-child {
+            border-bottom: none;
+        }
+
+        .record-link {
+            text-decoration: none;
+            color: var(--text-primary);
+            display: block;
+        }
+
+        .record-label {
+            display: block;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+            transition: color 0.2s;
+        }
+
+        .record-link:hover .record-label {
+            color: var(--accent);
+        }
+
+        .record-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 60px 20px 80px;
+            text-align: center;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .footer-seal-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            opacity: 0.8;
+        }
+
+        .footer-seal {
+            width: 40px;
+            height: auto;
+        }
+
+        .footer-kingdom-name {
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .footer-motto {
+            letter-spacing: 0.5em;
+            font-weight: 500;
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 600px) {
+            .nav-title { font-size: 1rem; }
+            .page-title { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-branding">
+            <img src="https://solquelumgazette.github.io/bg%20(2).png" alt="Logo" class="nav-logo">
+            <span class="nav-title">Solquelum Gazette</span>
+        </a>
+        <a href="index.html" class="nav-home-link">Home</a>
+    </nav>
+
+    <header class="content-header">
+        <h1 class="page-title">Royal Proclamations</h1>
+    </header>
+
+    <main class="main-container">
+        <div class="list-container">
+            <!-- Electoral Code -->
+
+    <div class="record-item">
+                <a href="proclamation/Royal Proclamation No. 001.pdf" target="_blank" class="record-link">
+                    <span class="record-label">Royal Proclamation No. 001</span>
+                    <span class="record-desc">SPECIFYING THE DATES FOR MOVABLE NATIONAL HOLIDAYS AND CULTURAL OBSERVANCES FOR THE YEAR 2026. Signed February 5, 2026</span>
+                </a>
+            </div>
+          
+          
+
+            <!-- (Optional placeholder) -->
+            
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-seal-group">
+            <img src="https://solquelumgazette.github.io/solquelum%20no%20bg.png" alt="Seal of the Kingdom" class="footer-seal">
+            <span class="footer-kingdom-name">The Kingdom of Solquelum</span>
+        </div>
+        <div class="footer-motto">Resurgens Cum Aurora</div>
+    </footer>
+
+</body>
+</html>
